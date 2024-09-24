@@ -67,5 +67,15 @@ const drawTiles = async (
   }
 }
 
-// await drawTiles(-600, -750, 1500, 1800)
-await drawTiles(-1200, -750, 1500, 1800, true)
+const drawTown = async (x: number, y: number): Promise<void> => {
+  const path = '/town.png'
+  await Assets.load(path)
+  const sprite = Sprite.from(path)
+  sprite.x = x - sprite.width / 2
+  sprite.y = y - sprite.height / 2
+  offsetContainer.addChild(sprite)
+}
+
+await drawTiles(-600, -750, 1500, 1800)
+// await drawTiles(-1200, -750, 1500, 1800, true)
+await drawTown(250, 250)
